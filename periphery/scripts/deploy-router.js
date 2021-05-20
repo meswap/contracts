@@ -11,16 +11,8 @@ async function main() {
   
   let factory = config.Factory[network]
   let wbnb = config.WBNB[network]
-  
-  if (network !== 'bsc') {
-    console.log('Deploying mock WBNB')
 
-    const WbnbContract = await hre.ethers.getContractFactory('WBNB')
-    wbnb = (await WbnbContract.deploy()).address
-
-    console.log("WBNB deployed to:", wbnb);
-  }
-  
+  console.log('WBNB: ', wbnb)
   console.log('Deploying Router')
 
   const RouterContract = await hre.ethers.getContractFactory('PancakeRouter')
